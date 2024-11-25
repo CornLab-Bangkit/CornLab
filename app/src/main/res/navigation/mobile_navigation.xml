@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.cornlab.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_analyze"
+        android:name="com.example.cornlab.ui.analyze.AnalyzeFragment"
+        android:label="@string/title_analyze"
+        tools:layout="@layout/fragment_analyze" />
+
+    <fragment
+        android:id="@+id/navigation_task"
+        android:name="com.example.cornlab.ui.task.TaskFragment"
+        android:label="@string/title_task"
+        tools:layout="@layout/fragment_task" />
+
+    <fragment
+        android:id="@+id/navigation_detail"
+        android:name="com.example.cornlab.ui.detail.DetailFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_detail"/>
+
+    <fragment
+        android:id="@+id/cornFragment"
+        android:name="com.example.cornlab.ui.home.corn.CornFragment"
+        android:label="Corn"
+        tools:layout="@layout/fragment_home_corn">
+        <action
+            android:id="@+id/action_corn_to_detail"
+            app:destination="@id/navigation_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/huskFragment"
+        android:name="com.example.cornlab.ui.home.husk.HuskFragment"
+        android:label="Corn"
+        tools:layout="@layout/fragment_home_corn">
+        <action
+            android:id="@+id/action_husk_to_detail"
+            app:destination="@id/navigation_detail" />
+    </fragment>
+
+</navigation>

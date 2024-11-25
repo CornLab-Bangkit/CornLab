@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CornLab</string>
+    <string name="title_home">Home</string>
+    <string name="title_analyze">Analyze</string>
+    <string name="title_task">Task</string>
+    <string name="title_detail">Detail</string>
+    <string name="title_camera">Camera to Analyze</string>
+
+    <string name="tab_text_1">Corn</string>
+    <string name="tab_text_2">Husk</string>
+
+    <string name="image_logo">Image Logo</string>
+</resources>
