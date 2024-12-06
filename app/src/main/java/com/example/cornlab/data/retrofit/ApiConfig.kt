@@ -17,7 +17,7 @@ class ApiConfig {
                 .build()
 
             return Retrofit.Builder()
-                .baseUrl("https://event-api.dicoding.dev/")
+                .baseUrl("http://34.101.77.187:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

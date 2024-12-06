@@ -6,13 +6,13 @@ plugins {
 
 android {
     namespace = "com.example.cornlab"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.cornlab"
         minSdk = 30
-        targetSdk = 34
-        versionCode = 1
+        targetSdk = 35
+        versionCode = 1 
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -36,6 +36,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
         buildConfig = true
     }
 }
@@ -50,10 +51,12 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.gridlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.androidx.core.splashscreen)
     implementation (libs.androidx.recyclerview)
     implementation(libs.androidx.viewpager2)
 
@@ -63,7 +66,13 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.androidx.room.runtime)
-    /*ksp(libs.room.compiler)*/
+    ksp(libs.room.compiler)
     implementation(libs.androidx.room.ktx)
+
+    ksp(libs.androidx.databinding.compiler.v872)
+
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
 
 }

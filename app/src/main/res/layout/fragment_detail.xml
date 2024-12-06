@@ -23,7 +23,7 @@
             android:gravity="center_horizontal">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imgRecomLogo"
+                android:id="@+id/ivImageCover"
                 android:layout_width="match_parent"
                 android:layout_height="320dp"
                 android:layout_margin="16dp"
@@ -41,21 +41,7 @@
                 android:layout_marginBottom="12dp" />
 
             <TextView
-                android:id="@+id/tvRecomOwner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:id="@+id/tvRecomTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvRecomQuota"
+                android:id="@+id/tvRecomSummary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
@@ -67,7 +53,15 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:justificationMode="inter_word"
-                android:layout_marginBottom="32dp" />
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvRecomSteps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:layout_marginBottom="20dp" />
 
         </LinearLayout>
     </ScrollView>

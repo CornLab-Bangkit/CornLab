@@ -4,16 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cornlab.data.response.RecomResponse
-import com.example.cornlab.data.response.ListRecomsItem
+import com.example.cornlab.data.response.ListNotesItem
+import com.example.cornlab.data.response.RecomendationsResponse
 import com.example.cornlab.data.retrofit.ApiConfig
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class CornViewModel : ViewModel() {
 
-    private val _recomList = MutableLiveData<List<ListRecomsItem>>()
-    val recomList: LiveData<List<ListRecomsItem>> get() = _recomList
+    private val _noteList = MutableLiveData<List<ListNotesItem>>()
+    val noteList: LiveData<List<ListNotesItem>> get() = _noteList
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
@@ -25,10 +25,11 @@ class CornViewModel : ViewModel() {
         _isLoading.value = true
         viewModelScope.launch {
             try {
-                val response: Response<RecomResponse> = ApiConfig.getApiService().getCornRecoms()
+                val response: Response<RecomendationsResponse> = ApiConfig.getApiService().getHuskRecoms()
                 _isLoading.value = false
                 if (response.isSuccessful) {
-                    _recomList.value = response.body()?.listEvents ?: emptyList()
+                    _noteList.value = response.body()?.listNotes?.filterNotNull() ?: emptyList()
+
                 } else {
                     _errorMessage.value = "Gagal mendapatkan data: ${response.message()}"
                 }

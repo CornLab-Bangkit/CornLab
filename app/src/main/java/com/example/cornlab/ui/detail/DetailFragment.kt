@@ -6,8 +6,7 @@ import android.widget.ImageView
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
-import com.example.cornlab.R
-import com.example.cornlab.data.response.DetailResponse
+import com.example.cornlab.data.response.Recom
 import com.example.cornlab.databinding.FragmentDetailBinding
 import com.example.cornlab.ui.BaseFragment
 
@@ -49,20 +48,15 @@ class DetailFragment : BaseFragment() {
 
     private fun updateUI(recomDetails: Recom) {
         binding.tvRecomName.text = recomDetails.name
-        binding.tvRecomDescription.text = HtmlCompat.fromHtml(
-            recomDetails.description ?: "",
+        binding.tvRecomSteps.text = HtmlCompat.fromHtml(
+            (recomDetails.steps?.toString() ?: ""),
             HtmlCompat.FROM_HTML_MODE_LEGACY
         )
-        binding.tvRecomOwner.text = recomDetails.ownerName
-        binding.tvRecomTime.text = recomDetails.beginTime
 
-        val sisaQuota = (recomDetails.quota ?: 0) - (recomDetails.registrants ?: 0)
-        binding.tvRecomQuota.text = buildString {
-            append("Sisa Quota: ")
-            append(sisaQuota)
-        }
+        binding.tvRecomSummary.text = recomDetails.summary
+        binding.tvRecomDescription.text = recomDetails.description
 
-        binding.imgRecomLogo.loadImage(recomDetails.imageLogo)
+        binding.ivImageCover.loadImage(recomDetails.imageCover)
 
     }
 

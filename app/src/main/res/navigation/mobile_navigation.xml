@@ -9,7 +9,14 @@
         android:id="@+id/navigation_home"
         android:name="com.example.cornlab.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_info"
+            app:destination="@+id/navigation_info" />
+        <action
+            android:id="@+id/action_home_to_analyze"
+            app:destination="@+id/navigation_analyze" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_analyze"
@@ -33,20 +40,27 @@
         android:id="@+id/cornFragment"
         android:name="com.example.cornlab.ui.home.corn.CornFragment"
         android:label="Corn"
-        tools:layout="@layout/fragment_home_corn">
+        tools:layout="@layout/fragment_home_corn" >
         <action
             android:id="@+id/action_corn_to_detail"
             app:destination="@id/navigation_detail" />
     </fragment>
 
+
     <fragment
         android:id="@+id/huskFragment"
         android:name="com.example.cornlab.ui.home.husk.HuskFragment"
         android:label="Corn"
-        tools:layout="@layout/fragment_home_corn">
+        tools:layout="@layout/fragment_home_corn" >
         <action
             android:id="@+id/action_husk_to_detail"
             app:destination="@id/navigation_detail" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_info"
+        android:name="com.example.cornlab.ui.info.InfoFragment"
+        android:label="@string/title_info"
+        tools:layout="@layout/fragment_info" />
 
 </navigation>

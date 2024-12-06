@@ -53,9 +53,9 @@ class CornFragment : BaseFragment(), RecomAdapter.OnItemClickListener {
             showLoading(isLoading)
         }
 
-        cornViewModel.recomList.observe(viewLifecycleOwner) { recoms ->
-            adapter.submitList(recoms)
-            binding.rvCorn.visibility = if (recoms.isEmpty()) View.GONE else View.VISIBLE
+        cornViewModel.noteList.observe(viewLifecycleOwner) { notes ->
+            adapter.submitList(notes)
+            binding.rvCorn.visibility = if (notes.isEmpty()) View.GONE else View.VISIBLE
         }
 
         cornViewModel.errorMessage.observe(viewLifecycleOwner) { errorMessage ->
@@ -86,9 +86,9 @@ class CornFragment : BaseFragment(), RecomAdapter.OnItemClickListener {
     override fun onItemClick(recomId: Int?) {
         recomId?.let {
             val bundle = Bundle().apply {
-                putInt("recomId", it)
+                putInt("noteId", it)
             }
-            findNavController().navigate(R.id.action_corn_to_detail, bundle)
+            findNavController().navigate(R.id.action_husk_to_detail, bundle)
         }
     }
 }
