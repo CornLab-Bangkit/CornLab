@@ -8,7 +8,10 @@ data class AnalyzeResponse(
 	val data: Data? = null,
 
 	@field:SerializedName("message")
-	val message: String? = null
+	val message: String? = null,
+
+	@field:SerializedName("status")
+	val status: String? = null
 )
 
 data class Data(
@@ -19,12 +22,11 @@ data class Data(
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
 
-	@field:SerializedName("confidenceScore")
-	val confidenceScore: Any? = null,
-
-	@field:SerializedName("isAboveThreshold")
-	val isAboveThreshold: Boolean? = null,
+	@field:SerializedName("suggestion")
+	val suggestion: String? = null,
 
 	@field:SerializedName("id")
-	val id: String? = null
+	val id: String? = null,
+
+	var imageUri: String? = null
 )

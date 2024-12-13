@@ -1,13 +1,12 @@
-package com.example.cornlab.ui.task
+package com.example.cornlab.ui.history
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.cornlab.data.local.HistoryDatabase
+import com.example.cornlab.data.local.HistoryEntity
 
-class   TaskViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
-    }
-    val text: LiveData<String> = _text
+class HistoryViewModel(application: Application) : AndroidViewModel(application) {
+    private val historyDao = HistoryDatabase.getInstance(application).historyDao()
+    val historyList: LiveData<List<HistoryEntity>> = historyDao.getAllHistories()
 }

@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class RecomendationsResponse(
 
-	@field:SerializedName("listNotes")
-	val listNotes: List<ListNotesItem?>? = null,
+	@field:SerializedName("listRecoms")
+	val listRecoms: List<ListRecomsItem> = listOf(),
 
 	@field:SerializedName("error")
 	val error: Boolean? = null,
@@ -14,10 +14,7 @@ data class RecomendationsResponse(
 	val message: String? = null
 )
 
-data class ListNotesItem(
-
-	@field:SerializedName("summary")
-	val summary: String? = null,
+data class ListRecomsItem(
 
 	@field:SerializedName("name")
 	val name: String? = null,
@@ -35,5 +32,5 @@ data class ListNotesItem(
 	val category: String? = null,
 
 	@field:SerializedName("steps")
-	val steps: List<String?>? = null
+	val steps: String? = null
 )

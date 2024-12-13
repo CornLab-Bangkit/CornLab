@@ -3,13 +3,12 @@ package com.example.cornlab
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.cornlab.databinding.ActivityMainBinding
-import com.example.cornlab.ui.analyze.AnalyzeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val fab: FloatingActionButton = findViewById(R.id.fab)
+
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as? NavHostFragment
 
@@ -33,17 +34,15 @@ class MainActivity : AppCompatActivity() {
 
             val navView: BottomNavigationView = binding.bottomNavView
             navView.setupWithNavController(navController)
+            fab.setOnClickListener {
+                navController.navigate(R.id.action_home_to_analyze)
+            }
+
         } else {
             Log.e("MainActivity", "NavHostFragment not found")
         }
 
-        binding.fab.setOnClickListener {
-            val analyzeFragment = AnalyzeFragment()
-            val transaction : FragmentTransaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.nav_host_fragment, analyzeFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
+
     }
 
     // Ensure proper navigation behavior for the up button

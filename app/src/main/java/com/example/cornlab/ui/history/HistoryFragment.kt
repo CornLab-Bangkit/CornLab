@@ -1,38 +1,44 @@
-package com.example.cornlab.ui.task
+package com.example.cornlab.ui.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.cornlab.databinding.FragmentTaskBinding
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cornlab.databinding.FragmentHistoryBinding
 
-class TaskFragment : Fragment() {
+class HistoryFragment : Fragment() {
 
-    private var _binding: FragmentTaskBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
+    private val historyViewModel: HistoryViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(TaskViewModel::class.java)
+        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        _binding = FragmentTaskBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val textView: TextView = binding.textTask
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val historyAdapter = HistoryAdapter()
+
+        binding.rvHistory.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = historyAdapter
         }
-        return root
+
+        historyViewModel.historyList.observe(viewLifecycleOwner) { histories ->
+            historyAdapter.submitList(histories)
+        }
+
+        binding.toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     override fun onDestroyView() {

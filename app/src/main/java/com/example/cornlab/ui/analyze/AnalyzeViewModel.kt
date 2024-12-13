@@ -3,11 +3,16 @@ package com.example.cornlab.ui.analyze
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.cornlab.data.response.Data
 
 class AnalyzeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    // LiveData untuk menyimpan hasil analisis
+    private val _analysisData = MutableLiveData<Data>()
+    val analysisData: LiveData<Data> get() = _analysisData
+
+    // Fungsi untuk memperbarui hasil analisis
+    fun setAnalysisData(data: Data) {
+        _analysisData.value = data
     }
-    val text: LiveData<String> = _text
 }

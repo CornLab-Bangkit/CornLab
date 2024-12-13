@@ -17,7 +17,7 @@ class ApiConfig {
                 .build()
 
             return Retrofit.Builder()
-                .baseUrl("http://34.101.77.187:3000/")
+                .baseUrl("https://pengolahan-jagungs-https-294422226808.asia-southeast2.run.app/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

@@ -12,8 +12,8 @@
         android:enabled="false"/>
 
     <item
-        android:id="@+id/navigation_task"
+        android:id="@+id/navigation_history"
         android:icon="@drawable/baseline_checklist_24"
-        android:title="@string/title_task" />
+        android:title="@string/title_history" />
 
 </menu>

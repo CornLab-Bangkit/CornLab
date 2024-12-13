@@ -1,4 +1,4 @@
-package com.example.cornlab.ui.detail
+package com.example.cornlab.ui.detail_recom
 
 import androidx.lifecycle.*
 import com.example.cornlab.data.response.DetailResponse

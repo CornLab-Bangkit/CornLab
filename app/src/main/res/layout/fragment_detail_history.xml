@@ -1,6 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="80dp"
+    tools:context=".ui.result.ResultFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="5dp"
+        android:padding="0dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_result"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:contentDescription="@string/title_result"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:layout_margin="0dp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:id="@+id/line_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_grey"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivImageResult"
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="35dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/tvViewFullImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/view_full_image"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toTopOf="@id/ivImageResult"
+        app:layout_constraintBottom_toBottomOf="@id/ivImageResult"
+        app:layout_constraintStart_toStartOf="@id/ivImageResult"
+        app:layout_constraintEnd_toEndOf="@id/ivImageResult" />
+
+    <FrameLayout
+        android:id="@+id/fullImageOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="25dp"
+        android:elevation="10dp"
+        android:background="#80000000"
+        android:visibility="gone">
+
+        <!-- Gambar versi full -->
+        <ImageView
+            android:id="@+id/fullImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/full_image" />
+
+        <!-- Tombol close -->
+        <ImageButton
+            android:id="@+id/btnCloseOverlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_close_24"
+            android:contentDescription="@string/close_overlay" />
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
+        app:cardCornerRadius="30dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/content"
+        app:layout_constraintBottom_toTopOf="@id/content"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_marginVertical="5dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:text="@string/title_result"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="12dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <ScrollView
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:fillViewport="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_top"
+        android:backgroundTint="@color/light_grey"
+        app:layout_constraintTop_toBottomOf="@id/ivImageResult"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="60dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tvCreatedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvSuggestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nunito"
+                android:justificationMode="inter_word"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

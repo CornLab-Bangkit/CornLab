@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.cornlab.R
 import com.example.cornlab.databinding.FragmentInfoBinding
 
@@ -21,12 +22,10 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
     ): View {
         binding = FragmentInfoBinding.inflate(inflater, container, false)
 
+        val navController = findNavController()
         val toolbar = binding.toolbar
 
-        toolbar.setNavigationIcon(R.drawable.ic_back)
-        toolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
-        }
+        NavigationUI.setupWithNavController(toolbar, navController)
 
         activity?.findViewById<CoordinatorLayout>(R.id.setBottomNav)?.visibility = View.GONE
 

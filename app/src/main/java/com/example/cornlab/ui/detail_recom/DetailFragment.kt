@@ -1,4 +1,4 @@
-package com.example.cornlab.ui.detail
+package com.example.cornlab.ui.detail_recom
 
 import android.os.Bundle
 import android.view.*

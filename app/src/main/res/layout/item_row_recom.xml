@@ -8,55 +8,53 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginHorizontal="10dp"
-    android:layout_marginVertical="6dp"
+    android:layout_marginVertical="4dp"
     app:cardElevation="3dp"
     card_view:cardCornerRadius="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="12dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_image"
-            android:layout_width="120dp"
-            android:layout_height="0dp"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivImageCover"
+            android:layout_width="100dp"
+            android:layout_height="85dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:cardCornerRadius="5dp">
-            <ImageView
-                android:id="@+id/ivImageCover"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                app:shapeAppearanceOverlay="@style/CircleImageView"
-                tools:srcCompat="@tools:sample/backgrounds/scenic"
-                android:contentDescription="@string/image_logo"/>
-        </com.google.android.material.card.MaterialCardView>
+            app:shapeAppearanceOverlay="@style/CircleListImage"
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            android:contentDescription="@string/image_recom"/>
 
         <TextView
             android:id="@+id/tvRecomName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="6dp"
             android:justificationMode="inter_word"
-            app:layout_constraintStart_toEndOf="@id/card_image"
+            app:layout_constraintStart_toEndOf="@id/ivImageCover"
             app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/text_title_recom"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/tvRecomSummary"
+            android:id="@+id/tvRecomDesc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="6dp"
             android:justificationMode="inter_word"
+            android:maxLines="3"
+            app:layout_constraintStart_toEndOf="@id/ivImageCover"
             app:layout_constraintTop_toBottomOf="@id/tvRecomName"
-            app:layout_constraintStart_toEndOf="@id/card_image"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/text_sum_recom" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

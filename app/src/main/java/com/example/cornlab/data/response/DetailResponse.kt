@@ -10,14 +10,11 @@ data class DetailResponse(
     @field:SerializedName("message")
     val message: String? = null,
 
-    @field:SerializedName("recom")
-    val event: Recom? = null
+    @field:SerializedName("recommendation")
+    val recommendation: Recommendation? = null
 )
 
-data class Recom(
-
-    @field:SerializedName("summary")
-    val summary: String? = null,
+data class Recommendation(
 
     @field:SerializedName("name")
     val name: String? = null,
@@ -35,6 +32,6 @@ data class Recom(
     val category: String? = null,
 
     @field:SerializedName("steps")
-    val steps: List<String?>? = null
+    val steps: String? = null
 
 )
