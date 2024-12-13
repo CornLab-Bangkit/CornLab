@@ -3,10 +3,11 @@ package com.example.cornlab.ui.detail
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
-import com.example.cornlab.data.response.Recom
+import com.example.cornlab.data.response.Recommendation
 import com.example.cornlab.databinding.FragmentDetailBinding
 import com.example.cornlab.ui.BaseFragment
 
@@ -15,10 +16,6 @@ class DetailFragment : BaseFragment() {
     private val binding get() = _binding!!
 
     private val detailViewModel: DetailViewModel by viewModels()
-
-    companion object {
-        private const val RECOM_ID_KEY = "recomId"
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +32,6 @@ class DetailFragment : BaseFragment() {
 
         binding.progressBar.visibility = View.VISIBLE
 
-        // Memuat detail rekomendasi saat fragment muncul
         detailViewModel.getRecomDetails(recomId)
 
         detailViewModel.recomDetails.observe(viewLifecycleOwner) { recomDetails ->
@@ -44,18 +40,24 @@ class DetailFragment : BaseFragment() {
                 updateUI(it)
             }
         }
+
+        detailViewModel.error.observe(viewLifecycleOwner) { errorMessage ->
+            errorMessage?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+                // Reset error agar Toast tidak ditampilkan berulang
+                detailViewModel.resetError()
+            }
+        }
+
     }
 
-    private fun updateUI(recomDetails: Recom) {
+    private fun updateUI(recomDetails: Recommendation) {
         binding.tvRecomName.text = recomDetails.name
+        binding.tvRecomDescription.text = recomDetails.description
         binding.tvRecomSteps.text = HtmlCompat.fromHtml(
-            (recomDetails.steps?.toString() ?: ""),
+            (recomDetails.steps?: ""),
             HtmlCompat.FROM_HTML_MODE_LEGACY
         )
-
-        binding.tvRecomSummary.text = recomDetails.summary
-        binding.tvRecomDescription.text = recomDetails.description
-
         binding.ivImageCover.loadImage(recomDetails.imageCover)
 
     }
@@ -63,6 +65,10 @@ class DetailFragment : BaseFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private const val RECOM_ID_KEY = "recomId"
     }
 }
 
