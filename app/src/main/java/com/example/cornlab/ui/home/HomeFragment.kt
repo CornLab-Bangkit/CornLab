@@ -31,12 +31,8 @@ class HomeFragment : Fragment() {
         toolbar.inflateMenu(R.menu.home_menu)
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.action_info -> {
-                    view?.findNavController()?.navigate(R.id.action_home_to_info)
-                    true
-                }
                 R.id.action_settings -> {
-                    // Handle klik settings
+                    view?.findNavController()?.navigate(R.id.action_home_to_settings)
                     true
                 }
                 else -> false

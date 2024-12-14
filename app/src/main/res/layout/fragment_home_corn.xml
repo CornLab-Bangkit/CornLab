@@ -11,7 +11,8 @@
         android:id="@+id/rvCorn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="70dp"
         android:elevation="2dp"
         tools:listitem="@layout/item_row_recom" />
 

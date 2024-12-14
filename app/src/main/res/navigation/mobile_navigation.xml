@@ -3,7 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/splash">
+
+    <fragment
+        android:id="@+id/splash"
+        android:name="com.example.cornlab.ui.SplashFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/splash_to_home"
+            app:destination="@+id/navigation_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_home"
@@ -11,11 +21,9 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_home_to_info"
-            app:destination="@+id/navigation_info" />
-        <action
-            android:id="@+id/action_home_to_analyze"
-            app:destination="@+id/navigation_analyze" />
+            android:id="@+id/action_home_to_settings"
+            app:destination="@+id/navigation_settings" />
+
         <action
             android:id="@+id/action_corn_to_detail"
             app:destination="@id/navigation_detail" />
@@ -25,10 +33,26 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.cornlab.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_info">
+        <action
+            android:id="@+id/action_settings_to_info"
+            app:destination="@id/navigation_info" />
+
+        <action
+            android:id="@+id/action_settings_to_faq"
+            app:destination="@id/navigation_faq" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_analyze"
         android:name="com.example.cornlab.ui.analyze.AnalyzeFragment"
         android:label="@string/title_analyze"
         tools:layout="@layout/fragment_analyze" >
+        <deepLink
+            app:uri="app://com.example.cornlab/analyze" />
         <action
             android:id="@+id/action_analyze_to_result"
             app:destination="@+id/navigation_result" />
@@ -38,7 +62,11 @@
         android:id="@+id/navigation_result"
         android:name="com.example.cornlab.ui.result.ResultFragment"
         android:label="@string/title_result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_result_to_analyze"
+            app:destination="@+id/navigation_analyze" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_history"
@@ -78,6 +106,18 @@
         android:id="@+id/navigation_info"
         android:name="com.example.cornlab.ui.info.InfoFragment"
         android:label="@string/title_info"
+        tools:layout="@layout/fragment_info" />
+
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.example.cornlab.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_info" />
+
+    <fragment
+        android:id="@+id/navigation_faq"
+        android:name="com.example.cornlab.ui.faq.FaqFragment"
+        android:label="@string/title_faq"
         tools:layout="@layout/fragment_info" />
 
 </navigation>

@@ -12,8 +12,8 @@ object AnalyzeApiConfig {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            .connectTimeout(20, TimeUnit.SECONDS)  // Timeout koneksi 20 detik
-            .writeTimeout(30, TimeUnit.SECONDS)    // Timeout menulis data 30 detik
+            .connectTimeout(20, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
             .build()
         val retrofit = Retrofit.Builder()
@@ -24,3 +24,4 @@ object AnalyzeApiConfig {
         return retrofit.create(AnalyzeApiService::class.java)
     }
 }
+

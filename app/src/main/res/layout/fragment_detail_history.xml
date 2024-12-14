@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_result"
+            android:text="@string/title_history"
             android:textColor="@color/green"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -39,8 +39,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivImageResult"
-        android:layout_width="320dp"
-        android:layout_height="300dp"
+        android:layout_width="280dp"
+        android:layout_height="270dp"
         android:layout_margin="16dp"
         android:layout_marginBottom="35dp"
         android:scaleType="centerCrop"
@@ -114,11 +114,9 @@
             android:layout_marginVertical="5dp"
             android:layout_gravity="center"
             android:layout_marginHorizontal="20dp"
-            android:text="@string/title_result"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:layout_marginBottom="12dp" />
-
     </androidx.cardview.widget.CardView>
 
 
@@ -142,7 +140,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="60dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="15dp"
             android:gravity="center_horizontal">
 
             <TextView

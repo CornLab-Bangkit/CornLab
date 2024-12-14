@@ -4,6 +4,7 @@ import android.app.Activity.RESULT_OK
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.net.Uri
 import androidx.core.net.toUri
 import android.os.Bundle
@@ -98,9 +99,6 @@ class AnalyzeFragment : Fragment(R.layout.fragment_analyze) {
     ): View {
         binding = FragmentAnalyzeBinding.inflate(inflater, container, false)
 
-        val toolbar = binding.toolbar
-
-        // Hide Bottom NavBar
         activity?.findViewById<CoordinatorLayout>(R.id.setBottomNav)?.visibility = View.GONE
 
         return binding.root
@@ -109,10 +107,11 @@ class AnalyzeFragment : Fragment(R.layout.fragment_analyze) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navController = findNavController()
+        navController = findNavController()
         val toolbar = binding.toolbar
 
         NavigationUI.setupWithNavController(toolbar, navController)
+        toolbar.title = ""
 
         previewView = binding.previewView
         capturedImage = binding.capturedImage
@@ -260,12 +259,15 @@ class AnalyzeFragment : Fragment(R.layout.fragment_analyze) {
         when (aspectRatio) {
             AspectRatio.RATIO_16_9 -> {
                 params.height = ViewGroup.LayoutParams.MATCH_PARENT
+                binding.previewView.setBackgroundColor(Color.TRANSPARENT)
             }
             AspectRatio.RATIO_4_3 -> {
                 params.height = (binding.previewView.width * 4) / 3
+                binding.previewView.setBackgroundColor(Color.TRANSPARENT)
             }
             AspectRatio.RATIO_DEFAULT -> {
                 params.height = binding.previewView.width
+                binding.previewView.setBackgroundColor(Color.TRANSPARENT)
             }
         }
 
@@ -369,9 +371,7 @@ class AnalyzeFragment : Fragment(R.layout.fragment_analyze) {
             val file = File(currentImageUri!!.path!!)
             val requestBody = file.asRequestBody("image/jpeg".toMediaType())
             val multipartBody = MultipartBody.Part.createFormData("image", file.name, requestBody)
-
             val analyzeViewModel = ViewModelProvider(requireActivity())[AnalyzeViewModel::class.java]
-
             val analyzeService = AnalyzeApiConfig.getAnalyzeApiService()
             lifecycleScope.launch {
                 try {
@@ -381,18 +381,14 @@ class AnalyzeFragment : Fragment(R.layout.fragment_analyze) {
                         val analyzeResponse = response.body()
                         analyzeResponse?.data?.let { data ->
                             data.imageUri = currentImageUri.toString()
-                            // Simpan data di ViewModel
                             analyzeViewModel.setAnalysisData(data)
 
-                            //Nyimpen data di history
                             saveToHistory(
                                 uri = currentImageUri!!,
                                 result = data.result,
                                 suggestion = data.suggestion,
                                 createdAt = data.createdAt
                             )
-
-                            // Navigasi ke ResultFragment
                             navController.navigate(R.id.action_analyze_to_result)
                         } ?: run {
                             showToast("No data received from analysis")
@@ -402,7 +398,6 @@ class AnalyzeFragment : Fragment(R.layout.fragment_analyze) {
                         showToast("Analysis failed: $errorBody")
                     }
                 } catch (e: Exception) {
-                    Log.e("Analyze", "Error: ${e.message}")
                     showToast("An error occurred: ${e.message}")
                 } finally {
                     showLoading(false)

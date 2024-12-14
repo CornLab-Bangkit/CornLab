@@ -16,4 +16,7 @@ interface HistoryDAO {
 
     @Query("SELECT * FROM history_analyze WHERE id = :id")
     fun getHistoryById(id: Int): LiveData<HistoryEntity?>
+
+    @Query("DELETE FROM history_analyze WHERE id = :id")
+    suspend fun deleteById(id: Int)
 }

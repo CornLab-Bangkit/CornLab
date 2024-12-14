@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="10dp"
+        android:padding="0dp">
+
+        <TextView
+            android:id="@+id/tv_scanLeaf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:contentDescription="@string/title_analyze"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:layout_margin="0dp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvHelp"
+        style="@style/TextSubSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/help"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvInfo"
+        style="@style/TextDescSettings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="28dp"
+        android:paddingVertical="8dp"
+        android:layout_weight="1"
+        android:text="@string/title_info"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        app:drawableRightCompat="@drawable/ic_arrow_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHelp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvFAQ"
+        style="@style/TextDescSettings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="28dp"
+        android:paddingVertical="8dp"
+        android:layout_weight="1"
+        android:text="@string/faq"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        app:drawableRightCompat="@drawable/ic_arrow_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvInfo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

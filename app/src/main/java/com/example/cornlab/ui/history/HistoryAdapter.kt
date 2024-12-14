@@ -12,7 +12,9 @@ import com.example.cornlab.R
 import com.example.cornlab.data.local.HistoryEntity
 import com.example.cornlab.databinding.ItemRowHistoryBinding
 
-class HistoryAdapter : ListAdapter<HistoryEntity, HistoryAdapter.HistoryViewHolder>(DIFF_CALLBACK) {
+class HistoryAdapter(
+    private val viewModel: HistoryViewModel
+) : ListAdapter<HistoryEntity, HistoryAdapter.HistoryViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<HistoryEntity>() {
@@ -33,15 +35,12 @@ class HistoryAdapter : ListAdapter<HistoryEntity, HistoryAdapter.HistoryViewHold
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         holder.bind(getItem(position))
-
     }
 
     inner class HistoryViewHolder(private val binding: ItemRowHistoryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(history: HistoryEntity) {
-            // Set image using the URI
             binding.ivImage.setImageURI(Uri.parse(history.imageUri))
 
-            // Set result and suggestion
             binding.tvResult.text = history.result ?: "No Result"
             binding.tvDate.text = history.createdAt ?: "Unknown Date"
 
@@ -55,6 +54,11 @@ class HistoryAdapter : ListAdapter<HistoryEntity, HistoryAdapter.HistoryViewHold
                 }
             }
 
+            binding.btnDelete.setOnClickListener {
+                history.id?.let { id ->
+                    viewModel.deleteHistoryById(id)
+                }
+            }
         }
     }
 }

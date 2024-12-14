@@ -1,7 +1,8 @@
 package com.example.cornlab
 
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -20,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
 
-        // Inflate layout with ViewBinding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -35,17 +35,15 @@ class MainActivity : AppCompatActivity() {
             val navView: BottomNavigationView = binding.bottomNavView
             navView.setupWithNavController(navController)
             fab.setOnClickListener {
-                navController.navigate(R.id.action_home_to_analyze)
+                navController.navigate(Uri.parse("app://com.example.cornlab/analyze"))
             }
-
         } else {
-            Log.e("MainActivity", "NavHostFragment not found")
+            Toast.makeText(this, "NavHostFragment not found!", Toast.LENGTH_SHORT).show()
         }
 
 
     }
 
-    // Ensure proper navigation behavior for the up button
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }

@@ -14,3 +14,4 @@ interface AnalyzeApiService {
         @Part file: MultipartBody.Part
     ): Response<AnalyzeResponse>
 }
+

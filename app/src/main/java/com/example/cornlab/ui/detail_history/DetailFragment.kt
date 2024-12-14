@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -34,6 +35,7 @@ class DetailFragment : Fragment() {
         val navController = findNavController()
         val toolbar = binding.toolbar
         NavigationUI.setupWithNavController(toolbar, navController)
+        toolbar.title = ""
 
         val historyId = arguments?.getInt("historyId")
         if (historyId == null) {
@@ -54,6 +56,33 @@ class DetailFragment : Fragment() {
                 showToast("History not found")
             }
         }
+
+        binding.ivImageResult.setOnClickListener {
+            fadeIn(binding.fullImageOverlay)
+        }
+        binding.btnCloseOverlay.setOnClickListener {
+            fadeOut(binding.fullImageOverlay)
+        }
+    }
+
+    private fun fadeIn(view: View) {
+        view.visibility = View.VISIBLE
+        val animation = AlphaAnimation(0f, 1f)
+        animation.duration = 300
+        view.startAnimation(animation)
+    }
+
+    private fun fadeOut(view: View) {
+        val animation = AlphaAnimation(1f, 0f)
+        animation.duration = 300
+        animation.setAnimationListener(object : android.view.animation.Animation.AnimationListener {
+            override fun onAnimationStart(animation: android.view.animation.Animation?) {}
+            override fun onAnimationEnd(animation: android.view.animation.Animation?) {
+                view.visibility = View.GONE
+            }
+            override fun onAnimationRepeat(animation: android.view.animation.Animation?) {}
+        })
+        view.startAnimation(animation)
     }
 
     private fun showToast(message: String) {

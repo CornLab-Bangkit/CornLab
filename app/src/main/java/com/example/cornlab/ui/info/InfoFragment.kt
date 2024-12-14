@@ -21,21 +21,16 @@ class InfoFragment : Fragment(R.layout.fragment_info) {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentInfoBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        activity?.findViewById<CoordinatorLayout>(R.id.setBottomNav)?.visibility = View.GONE
         val navController = findNavController()
         val toolbar = binding.toolbar
 
         NavigationUI.setupWithNavController(toolbar, navController)
-
-        activity?.findViewById<CoordinatorLayout>(R.id.setBottomNav)?.visibility = View.GONE
-
-        return binding.root
-    }
-
-    override fun onDestroyView(){
-        super.onDestroyView()
-
-        activity?.findViewById<CoordinatorLayout>(R.id.setBottomNav)?.visibility = View.VISIBLE
-
+        toolbar.title = ""
     }
 }

@@ -5,6 +5,7 @@
     <string name="title_history">History</string>
     <string name="title_info">Info</string>
     <string name="title_settings">Settings</string>
+    <string name="title_faq">FAQ</string>
     <string name="title_detail">Detail</string>
 
     <string name="title_camera">Camera</string>
@@ -43,10 +44,68 @@
     <string name="ratio_9_16">9 : 16</string>
 
     <string name="view_full_image">Tap to See Full</string>
-    <!--percobaan-->
-    <string name="test_result_name">Common Rust</string>
-    <string name="test_result_date">2024–12–11 19:10</string>
-    <string name="test_suggestion">Discover how CornLab is revolutionizing the way farmers manage crop health. This feature provides essential information about out mission, tools, and how we assist farmerss in identifying and addressing corn disease efficiently. Discover how CornLab is revolutionizing the way farmers manage crop health. This feature provides essential information about out mission, tools, and how we assist farmerss in identifying and addressing corn disease efficiently. Discover how CornLab is revolutionizing the way farmers manage crop health. This feature provides essential information about out mission, tools, and how we assist farmerss in identifying and addressing corn disease efficiently.</string>
-    <string name="confidence_score_template">Confidence Score: %.2f%%</string>
+
+    <string name="back_to_previous_page">Back To Previous</string>
+    <string name="settings">SETTINGS</string>
+    <string name="help">HELP</string>
+    <string name="faq">FAQs</string>
+
+    <!--Isi teks di halaman info-->
+    <string name="welcome_message">
+        Welcome to CornLab, your trusted partner in revolutionizing corn farming through technology. Our mission is to empower farmers with innovative tools to improve crop health, enhance productivity, and ensure sustainable agricultural practices.
+    </string>
+    <string name="specialization">
+        At CornLab, we specialize in developing cutting-edge solutions for identifying and managing corn leaf diseases. With advanced image processing and machine learning, our app helps farmers detect issues early and take proactive measures to protect their crops.
+    </string>
+    <string name="cornlab_support">
+        CornLab is designed to support farmers in three key areas:\n- Identify: Accurately detect common corn leaf diseases to enable timely action.\n- Treatment: Provide tailored recommendations for managing and treating identified diseases.\n- Utilize: Help farmers make the most of their resources through efficient and effective farming solutions.
+    </string>
+    <string name="using_cornlab">
+        Using CornLab is simple and intuitive. Just follow these easy steps to get started:
+    </string>
+    <string name="step_1">
+        1. Capture an Image\n   - Open the app and click on the "Scan" button.\n   - Take a clear photo of the corn leaf with visible symptoms.
+    </string>
+    <string name="step_2">
+        2. Analyze and Review Results\n   - CornLab will automatically process the image and identify the disease.\n   - The app will display the results and categorize the disease (blight, rust, leaf spot, etc.).
+    </string>
+    <string name="step_3">
+        3. Receive Treatment Recommendations\n   - Based on the detected disease, CornLab will provide treatment suggestions and preventive measures.
+    </string>
+    <string name="conclusion">
+        We strive to deliver tools that are accurate, easy to use, and environmentally friendly. With CornLab, we aim to help farmers grow healthier crops and increase their yields.
+    </string>
+
+    <!--Isi teks di halaman FAQs-->
+    <string name="question_1">
+        1. Is the output of scanned diseases accurate?
+    </string>
+    <string name="answer_1">
+        It is not fully accurate but we ensure the results are highly reliable.
+    </string>
+    <string name="question_2">
+        2. Does CornLab require an internet connection?
+    </string>
+    <string name="answer_2">
+        Yes. CornLab needs an internet connection to process data and deliver accurate results.
+    </string>
+    <string name="question_3">
+        3. What diseases can CornLab detect?
+    </string>
+    <string name="answer_3">
+        CornLab identifies common corn leaf diseases grouped into three categories which are blight, rust and leaf spot.
+    </string>
+    <string name="question_4">
+        4. Is CornLab suitable for all types of corn plants?
+    </string>
+    <string name="answer_4">
+        Yes. CornLab works well with most corn plant types widely grown.
+    </string>
+    <string name="question_5">
+        5. Why am I unable to log into my account?
+    </string>
+    <string name="answer_5">
+        CornLab does not support a login feature yet but it is planned for future updates.
+    </string>
 
 </resources>

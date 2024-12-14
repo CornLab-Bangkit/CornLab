@@ -6,6 +6,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.example.cornlab.data.response.Recommendation
 import com.example.cornlab.databinding.FragmentDetailBinding
@@ -28,6 +30,12 @@ class DetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val navController = findNavController()
+        val toolbar = binding.toolbar
+
+        NavigationUI.setupWithNavController(toolbar, navController)
+        toolbar.title = ""
+
         val recomId = arguments?.getInt(RECOM_ID_KEY) ?: return
 
         binding.progressBar.visibility = View.VISIBLE
@@ -44,7 +52,6 @@ class DetailFragment : BaseFragment() {
         detailViewModel.error.observe(viewLifecycleOwner) { errorMessage ->
             errorMessage?.let {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
-                // Reset error agar Toast tidak ditampilkan berulang
                 detailViewModel.resetError()
             }
         }

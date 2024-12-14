@@ -11,6 +11,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import android.net.Uri
 import android.view.animation.AlphaAnimation
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.example.cornlab.R
 
 class ResultFragment : Fragment() {
 
@@ -23,11 +27,20 @@ class ResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentResultBinding.inflate(inflater, container, false)
+
+        activity?.findViewById<CoordinatorLayout>(R.id.setBottomNav)?.visibility = View.GONE
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val navController = findNavController()
+        val toolbar = binding.toolbar
+
+        NavigationUI.setupWithNavController(toolbar, navController)
+        toolbar.title = ""
 
         analyzeViewModel = ViewModelProvider(requireActivity())[AnalyzeViewModel::class.java]
 
