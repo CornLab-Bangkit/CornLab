@@ -41,5 +41,7 @@
 | 7 | **Recommendation Tabs** | Access curated recommendations for corn and husk processing under dedicated tabs for a seamless and informative experience. |
 | 8 | **FAQs and App Info** | Explore the FAQs and usage guide under the settings page to learn about the app's features and how to use them effectively. |
 | 9 | **Seamless API Integration** | Different APIs are used for distinct purposes: one for analyzing corn leaf diseases and another for fetching corn and husk processing recommendations, ensuring specialized and reliable performance for each task. |
+
+Note: The core feature of the app allows users to capture or select corn leaf images using CameraX. These images are processed in the cloud with machine learning to detect diseases and provide treatment recommendations. With just a single tap, users can start the analysis, leveraging advanced technology for efficient diagnosis. 
 ---
 
