@@ -19,7 +19,7 @@
 - Camera
 
 ### Installation
-1. Download the latest APK by clicking the image below:
+1. Download the APK by clicking the image below:
 
    [![Download CornLab](https://your-image-link.com)](https://your-apk-link.com)
 
