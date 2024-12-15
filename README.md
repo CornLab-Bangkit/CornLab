@@ -3,6 +3,7 @@
 CornLab is an Android app for detecting corn leaf diseases, built with Android SDK and ViewModel, based on the MVVM architecture.
 
 **Getting Started**
+---
 Prerequisites:
 - Android device
 - Internet connection
