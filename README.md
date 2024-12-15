@@ -21,7 +21,7 @@
 ### Installation
 1. Download the APK by clicking the image below:
 
-   [![Download CornLab](https://github.com/CornLab-Bangkit/CornLab/blob/main/app/src/main/res/drawable/image_logo_info.xml)](https://your-apk-link.com)
+   [![Download CornLab]]([https://your-apk-link.com](https://github.com/CornLab-Bangkit/CornLab/releases/download/CornLab-1.0/CornLab.apk))
 
 2. Install the APK on your Android device.
 3. Launch the app and start analyzing corn leaves!
