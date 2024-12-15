@@ -1,20 +1,37 @@
-#CornLab
----
-CornLab is an Android app for detecting corn leaf diseases, built with Android SDK and ViewModel, based on the MVVM architecture.
+# CornLab
 
-**Getting Started**
 ---
-Prerequisites:
-- Android device
-- Internet connection
+
+**CornLab** is an Android application designed to analyze corn leaf diseases and recommend suitable corn and husk types. Built with Android ViewModel and follows the MVVM architecture.
+
+---
+
+## Features
+- Analyze corn leaf diseases using cloud-based Machine Learning.
+- Get recommendations for corn and husk types based on disease analysis.
+- Store analysis history in a local database.
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Android Device
+- Internet Connection
 - Camera
-Installation:
-- Download the CornLab APK file. Click on the image below to download the CornLab APK.
-- Install the app, and you're all set to start using the cloud-based disease detection and recommendations!
+
+### Installation
+1. Download the latest APK by clicking the image below:
+
+   [![Download CornLab](https://your-image-link.com)](https://your-apk-link.com)
+
+2. Install the APK on your Android device.
+3. Launch the app and start analyzing corn leaves!
+
 ---
 
-**CornLab App Features**
----
+## CornLab App Features
+
 | No. | Feature | Description |
 |-----|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1 | **Splash Screen Introduction** | Start with a visually appealing splash screen that introduces *CornLab* and sets the tone for a modern and user-friendly experience. |
