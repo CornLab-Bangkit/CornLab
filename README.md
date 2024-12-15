@@ -19,7 +19,7 @@
 - Camera
 
 ### Installation
-1. Download the APK by clicking the image below:
+1. Download the APK by clicking the text below:
 
    [Download CornLab](https://github.com/CornLab-Bangkit/CornLab/releases/download/CornLab-1.0/CornLab.apk)
 
