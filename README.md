@@ -12,7 +12,9 @@ Installation:
 - Download the CornLab APK file. Click on the image below to download the CornLab APK.
 - Install the app, and you're all set to start using the cloud-based disease detection and recommendations!
 ---
+
 **CornLab App Features**
+---
 | No. | Feature | Description |
 |-----|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1 | **Splash Screen Introduction** | Start with a visually appealing splash screen that introduces *CornLab* and sets the tone for a modern and user-friendly experience. |
