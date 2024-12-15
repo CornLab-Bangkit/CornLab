@@ -1,4 +1,4 @@
-![CornLab Logo]([assets/cornlab-logo.png](https://github.com/CornLab-Bangkit/CornLab/blob/main/Logo%20App.jpg))
+![CornLab Logo](https://github.com/CornLab-Bangkit/CornLab/blob/main/Logo%20App.jpg?raw=true)
 
 # CornLab
 
