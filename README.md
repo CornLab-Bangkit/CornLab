@@ -1,8 +1,10 @@
+<div align="center">
 <img src="https://github.com/CornLab-Bangkit/CornLab/blob/main/Logo%20App.jpg?raw=true" alt="CornLab Logo" width="300"/>
-
-
+</div>
+---
+<div align="center">
 # CornLab
-
+</div>
 **CornLab** is an Android application designed to analyze corn leaf diseases and recommend suitable corn and husk types. Built with Android ViewModel and follows the MVVM architecture.
 
 ---
